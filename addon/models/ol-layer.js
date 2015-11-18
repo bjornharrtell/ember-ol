@@ -1,11 +1,12 @@
-import DS from 'ember-data';
+import Ember from 'ember';
 
-export default DS.Model.extend({
+export default Ember.Object.extend({
   title: null,
   visible: null,
   group: null,
   exclusive: false,
-  init: function(layer) {
+  init: function() {
+    const layer = this.get('layer');
     this.title = layer.get('title');
     this.visible = layer.get('visible');
     this.group = layer.get('group');

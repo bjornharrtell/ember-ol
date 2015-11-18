@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
     const map = new ol.Map({
       layers: [
         new ol.layer.Tile({
+          title: 'OpenStreetMap',
           source: new ol.source.OSM()
         })
       ],
