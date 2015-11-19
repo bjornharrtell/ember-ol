@@ -1,3 +1,4 @@
+import Ember from 'ember'
 import ol from 'npm:openlayers'
 
 export default Ember.Controller.extend({

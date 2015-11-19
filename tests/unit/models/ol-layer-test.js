@@ -1,3 +1,5 @@
+// TODO: this test is for ember-data model, need to decide if the model should be that or plain object...
+/*
 import { moduleForModel, test } from 'ember-qunit';
 
 moduleForModel('ol-layer', 'Unit | Model | ol layer', {
@@ -10,3 +12,4 @@ test('it exists', function(assert) {
   // let store = this.store();
   assert.ok(!!model);
 });
+*/
