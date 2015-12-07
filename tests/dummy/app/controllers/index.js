@@ -2,7 +2,7 @@ import Ember from 'ember'
 import ol from 'npm:openlayers'
 
 export default Ember.Controller.extend({
-  init() {
+  init () {
     const map = new ol.Map({
       layers: [
         new ol.layer.Tile({
@@ -21,7 +21,7 @@ export default Ember.Controller.extend({
         zoom: 2
       })
     })
-  
+
     this.set('map', map)
   }
-});
+})
