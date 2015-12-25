@@ -1,0 +1,12 @@
+<li>
+  {{#if layer.exclusive}}
+  <label>{{radio-button groupValue=group value="title" changed="visible"}} {{title}}</label>
+  {{else}}
+  {{input type="checkbox" checked=visible}} {{title}}
+  <!--
+  <button class="btn btn-default btn-xs" {{action "removeSelected" layer}}>
+    <span class="glyphicon glyphicon-trash"></span>
+  </button>
+  -->
+  {{/if}}
+</li>

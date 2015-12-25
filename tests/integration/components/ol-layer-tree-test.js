@@ -3,7 +3,7 @@ import hbs from 'htmlbars-inline-precompile'
 
 import map from '../../helpers/map'
 
-moduleForComponent('ol-layer-switcher', 'Integration | Component | ol layer switcher', {
+moduleForComponent('ol-layer-tree', 'Integration | Component | ol layer switcher', {
   integration: true
 })
 
@@ -14,9 +14,9 @@ test('it renders', function (assert) {
   assert.equal(this.$().text().trim(), 'OpenStreetMap')
 
   this.render(hbs`
-    {{#ol-layer-switcher map=map}}
+    {{#ol-layer-tree map=map}}
       template block text
-    {{/ol-layer-switcher}}
+    {{/ol-layer-tree}}
   `)
   assert.equal(this.$().text().trim(), 'OpenStreetMap')
 })
