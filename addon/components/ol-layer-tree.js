@@ -7,7 +7,10 @@ export default Ember.Component.extend({
   classNames: ['ol-layer-tree'],
   init () {
     this._super()
-    const layer = OlLayer.create({ layer: this.get('map').getLayerGroup() })
+    const layer = OlLayer.create({
+      layer: this.get('map').getLayerGroup(),
+      title: 'Root'
+    })
     this.set('layer', layer)
   }
 })
