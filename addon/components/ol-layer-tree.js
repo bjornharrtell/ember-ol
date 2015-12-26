@@ -1,11 +1,13 @@
 import Ember from 'ember'
 import layout from '../templates/components/ol-layer-tree'
+import OlLayer from '../models/ol-layer'
 
 export default Ember.Component.extend({
   layout: layout,
   classNames: ['ol-layer-tree'],
   init () {
     this._super()
-    this.set('layers', this.get('map').getLayers().getArray())
+    const layer = OlLayer.create({ layer: this.get('map').getLayerGroup() })
+    this.set('layer', layer)
   }
 })
