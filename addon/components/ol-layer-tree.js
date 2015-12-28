@@ -12,5 +12,9 @@ export default Ember.Component.extend({
       title: 'Root'
     })
     this.set('layer', layer)
+    const layers = this.get('map').getLayers().getArray().map(layer => OlLayer.create({
+      layer: layer
+    }))
+    this.set('layers', layers)
   }
 })

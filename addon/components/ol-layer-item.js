@@ -4,7 +4,7 @@ import layout from '../templates/components/ol-layer-item'
 export default Ember.Component.extend({
   layout: layout,
   tagName: 'li',
-  init () {
-    this._super()
-  }
+  id: Ember.computed('layer', function () {
+    return 'item-' + this.get('layer.id')
+  })
 })
