@@ -1,6 +1,6 @@
 {{#if layer.layers}}
-  <input id="{{id}}" type="checkbox"/><label for="{{id}}">{{layer.title}}</label>
-  <ul>
+  <h4>{{layer.title}}</h4>
+  <ul class="list-group">
     {{#each layer.layers as |layer|}}
       {{ol-layer-item layer=layer}}
     {{/each}}
@@ -9,7 +9,7 @@
   {{#if layer.exclusive}}
   <label>{{radio-button groupValue=group value="layer.title" changed="layer.visible"}} {{layer.title}}</label>
   {{else}}
-    {{input id=id type="checkbox" checked=layer.visible}}<label for="{{id}}">{{layer.title}}</label>
+  {{input type="checkbox" checked=layer.visible}} {{layer.title}}
   <!--
   <button class="btn btn-default btn-xs" {{action "removeSelected" layer}}>
     <span class="glyphicon glyphicon-trash"></span>

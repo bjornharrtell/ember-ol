@@ -1,3 +1,9 @@
+.ol-layer-tree
+{
+	font: normal 11px sans-serif;
+	user-select: none;
+}
+
 .ol-layer-tree ul,
 .ol-layer-tree li
 {
@@ -9,34 +15,12 @@
 .ol-layer-tree input
 {
 	position: absolute;
-	opacity: 1;
 }
 
-.ol-layer-tree
-{
-	font: normal 11px sans-serif;
-	user-select: none;
-}
-
-.ol-layer-tree a
-{
-	color: #00f;
-	text-decoration: none;
-}
-
-.ol-layer-tree a:hover
-{
-	text-decoration: underline;
-}
-
+/* indent group */ 
 .ol-layer-tree input + label + ul
 {
 	margin: 0 0 0 10px;
-}
-
-.ol-layer-tree input + label + ul
-{
-	display: none;
 }
 
 .ol-layer-tree label,
@@ -51,13 +35,7 @@
 	opacity: .6;
 }
 
-.ol-layer-tree input:checked:not(:disabled) + label + ul
-{
-	display: block;
-}
-
 .ol-layer-tree label,
-.ol-layer-tree a,
 .ol-layer-tree label::before
 {
 	display: inline-block;
@@ -66,42 +44,10 @@
 	vertical-align: middle;
 }
 
-.ol-layer-tree label
-{
-	background-position: 18px 0;
-}
-
 .ol-layer-tree label::before
 {
 	content: "";
 	width: 16px;
 	margin: 0 0 0 0;
 	vertical-align: middle;
-	background-position: 0 0px;
-}
-
-.ol-layer-tree input:checked + label::before
-{
-	background-position: 0 0px;
-}
-
-/* webkit adjacent element selector bugfix */
-@media screen and (-webkit-min-device-pixel-ratio:0)
-{
-	.ol-layer-tree
-	{
-		-webkit-animation: webkit-adjacent-element-selector-bugfix infinite 1s;
-	}
-
-	@-webkit-keyframes webkit-adjacent-element-selector-bugfix
-	{
-		from
-		{
-			padding: 0;
-		}
-		to
-		{
-			padding: 0;
-		}
-	}
 }

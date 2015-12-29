@@ -1,5 +1,5 @@
 import Ember from 'ember'
-import layout from '../templates/components/ol-layer-item'
+import layout from '../templates/components/ol-layer-tree-item'
 
 export default Ember.Component.extend({
   layout: layout,

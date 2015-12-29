@@ -1,0 +1,15 @@
+{{#if layer.layers}}
+  {{input id=id type="checkbox" checked=layer.visible}}<label for="{{id}}">{{layer.title}}</label>
+  {{ol-layer-tree-group layers=layer.layers}}
+{{else}}
+  {{#if layer.exclusive}}
+  <label>{{radio-button groupValue=group value="layer.title" changed="layer.visible"}} {{layer.title}}</label>
+  {{else}}
+    {{input id=id type="checkbox" checked=layer.visible}}<label for="{{id}}">{{layer.title}}</label>
+  <!--
+  <button class="btn btn-default btn-xs" {{action "removeSelected" layer}}>
+    <span class="glyphicon glyphicon-trash"></span>
+  </button>
+  -->
+  {{/if}}
+{{/if}}
