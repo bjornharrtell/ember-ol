@@ -18,7 +18,14 @@ export default Ember.Controller.extend({
       layers: [
         new ol.layer.Tile({
           title: 'OpenStreetMap',
+          exclusive: true,
           source: new ol.source.OSM()
+        }),
+        new ol.layer.Tile({
+          title: 'MapQuest sat',
+          exclusive: true,
+          visible: false,
+          source: new ol.source.MapQuest({layer: 'sat'})
         }),
         new ol.layer.Group({
           title: 'Layer group',

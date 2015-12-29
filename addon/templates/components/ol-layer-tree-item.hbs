@@ -3,7 +3,7 @@
   {{ol-layer-tree-group layers=layer.layers}}
 {{else}}
   {{#if layer.exclusive}}
-  <label>{{radio-button groupValue=group value="layer.title" changed="layer.visible"}} {{layer.title}}</label>
+    {{radio-button id=id groupValue=group value="layer.title" changed="layer.visible"}}<label for="{{id}}">{{layer.title}}</label>
   {{else}}
     {{input id=id type="checkbox" checked=layer.visible}}<label for="{{id}}">{{layer.title}}</label>
   <!--

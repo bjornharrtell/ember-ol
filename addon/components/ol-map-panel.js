@@ -7,7 +7,7 @@ export default Ember.Component.extend({
   didInsertElement () {
     const map = this.get('map')
     map.setTarget(this.element)
-    const vector = map.getLayers().item(1).getLayers().item(0)
+    const vector = map.getLayers().item(2).getLayers().item(0)
     map.getView().fit(vector.getSource().getExtent(), map.getSize())
   }
 })
