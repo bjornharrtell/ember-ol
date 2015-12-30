@@ -46,10 +46,11 @@ export default Ember.Controller.extend({
       })
     })
 
-    map.addControl(new ol.control.MousePosition())
-
-    // map.getView().fit(vector.getSource().getExtent(), map.getSize())
+    map.addControl(new ol.control.MousePosition({
+      coordinateFormat: c => parseInt(c[0], 10) + ', ' + parseInt(c[1], 10)
+    }))
 
     this.set('map', map)
+    this.set('initialExtent', vector.getSource().getExtent())
   }
 })
