@@ -14,5 +14,10 @@ export default Ember.Component.extend({
     const olLayers = this.get('map').getLayers().getArray().concat().reverse()
     const layers = olLayers.map(layer => OlLayer.create({ layer }))
     this.set('layers', layers)
-  })
+  }),
+  actions: {
+    checkChanged (id) {
+      console.log(id)
+    }
+  }
 })

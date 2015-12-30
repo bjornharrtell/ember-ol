@@ -11,7 +11,7 @@ module.exports = function (environment) {
       'script-src': "'self'",
       'font-src': "'self'",
       'connect-src': "'self'",
-      'img-src': "'self' data: https://*.tile.openstreetmap.org",
+      'img-src': "'self' data: https://*.tile.openstreetmap.org https://otile*.mqcdn.com https://*.mapquest.com",
       'style-src': "'self' 'unsafe-inline'",
       'media-src': "'self'"
     },
