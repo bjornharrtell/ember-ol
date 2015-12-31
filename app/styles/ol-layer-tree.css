@@ -17,7 +17,7 @@
 	position: absolute;
 }
 
-/* indent group */ 
+/* indent group */
 .ol-layer-tree input + label + ul
 {
 	margin: 0 0 0 10px;
@@ -47,7 +47,7 @@
 .ol-layer-tree label::before
 {
 	content: "";
-	width: 16px;
+	width: 24px;
 	margin: 0 0 0 0;
 	vertical-align: middle;
 }
