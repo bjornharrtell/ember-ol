@@ -22,10 +22,10 @@ export default Ember.Controller.extend({
           source: new ol.source.OSM()
         }),
         new ol.layer.Tile({
-          title: 'MapQuest sat',
+          title: 'Stamen',
           exclusive: true,
           visible: false,
-          source: new ol.source.MapQuest({layer: 'sat'})
+          source: new ol.source.Stamen({layer: 'watercolor'})
         }),
         new ol.layer.Group({
           title: 'Layer group',
