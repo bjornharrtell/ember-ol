@@ -38,11 +38,7 @@
     "ember-load-initializers": "0.5.1",
     "ember-radio-button": "1.0.7",
     "ember-resolver": "2.1.0",
-    "loader.js": "4.0.11",
-    "standard": "8.5.0"
-  },
-  "standard": {
-    "globals": []
+    "loader.js": "4.0.11"
   },
   "keywords": [
     "ember-addon"
@@ -50,8 +46,7 @@
   "dependencies": {
     "ember-cli-babel": "5.1.10",
     "ember-cli-htmlbars": "1.1.0",
-    "ember-cli-htmlbars-inline-precompile": "0.3.6",
-    "openlayers": "3.19.1"
+    "ember-cli-htmlbars-inline-precompile": "0.3.6"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
