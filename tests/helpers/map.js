@@ -1,5 +1,3 @@
-import ol from 'npm:openlayers'
-
 export default new ol.Map({
   layers: [
     new ol.layer.Tile({
