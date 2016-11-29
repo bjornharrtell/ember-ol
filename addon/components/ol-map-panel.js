@@ -3,6 +3,7 @@ import layout from '../templates/components/ol-map-panel'
 
 export default Ember.Component.extend({
   layout: layout,
+  tagName: '',
   classNames: ['ol-map-panel'],
   didInsertElement () {
     const map = this.get('map')
