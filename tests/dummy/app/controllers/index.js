@@ -1,16 +1,31 @@
 import Ember from 'ember'
 
+import uuid from 'npm:uuid/v4'
+
 export default Ember.Controller.extend({
   init () {
+    this._super(...arguments)
+
+    const f1 = new ol.Feature({
+      geometry: new ol.geom.Polygon([[[2, 2], [98, 2], [2, 98], [2, 2]]])
+    })
+    f1.setId(uuid())
+
+    const source = new ol.source.Vector({
+      features: [
+        f1
+      ]
+    })
+
+    const sourceRecord = this.get('store').createRecord('ol-source-vector', {
+      source
+    })
+
+    this.set('sourceRecord', sourceRecord)
+
     const vector = new ol.layer.Vector({
       title: 'Vector',
-      source: new ol.source.Vector({
-        features: [
-          new ol.Feature({
-            geometry: new ol.geom.Polygon([[[2, 2], [98, 2], [2, 98], [2, 2]]])
-          })
-        ]
-      })
+      source: source
     })
 
     const map = new ol.Map({
@@ -51,5 +66,15 @@ export default Ember.Controller.extend({
 
     this.set('map', map)
     this.set('initialExtent', vector.getSource().getExtent())
+
+    const f2 = new ol.Feature({
+      geometry: new ol.geom.Polygon([[[20, 20], [98, 20], [20, 98], [20, 20]]])
+    })
+    f2.setId(uuid())
+    source.addFeature(f2)
+
+    const draw = new ol.interaction.Draw({ source, type: 'LineString' })
+    map.addInteraction(draw)
+
   }
 })
