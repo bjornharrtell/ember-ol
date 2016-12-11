@@ -17,9 +17,6 @@ export default DS.Model.extend({
     source.on('addfeature', e => {
       if (!this.__updating) {
         const feature = e.feature
-        if (!feature.getId()) {
-          feature.setId(Ember.guidFor(feature))
-        }
         this.addFeature(e.feature)
       }
     })
@@ -29,11 +26,10 @@ export default DS.Model.extend({
 
       },
       arrayDidChange: (observedObj, start, removeCount, addCount) => {
-        const feature = this.get('features').objectAt(start)
-        const id = feature.get('feature').getId()
+        const feature = this.get('features').objectAt(start).get('feature')
         this.__updating = true
-        if (!source.getFeatureById(feature.get('feature').getId())) {
-          source.addFeature(feature.get('feature'))
+        if (source.getFeatures().indexOf(feature) === -1) {
+          source.addFeature(feature)
         }
         this.__updating = false
       }
@@ -42,12 +38,12 @@ export default DS.Model.extend({
   },
   addFeature (feature) {
     console.debug('ol-source-vector:addFeature:call')
-    const f = this.store.createRecord('ol-feature', {
+    const r = this.store.createRecord('ol-feature', {
       feature,
-      fid: feature.getId(),
       geometry: feature.getGeometry()
     })
-    this.get('features').pushObject(f)
+    feature._emberRecord = r
+    this.get('features').pushObject(r)
     // f.on('ready', () => this.get('features').pushObject(f))
     console.debug('ol-source-vector:addFeature:return')
   },
