@@ -1,7 +1,5 @@
 import DS from 'ember-data';
 
-import uuid from 'npm:uuid/v4'
-
 export default DS.Model.extend({
   ready () {
     console.debug('ol-source-vector:ready:call')
@@ -20,7 +18,7 @@ export default DS.Model.extend({
       if (!this.__updating) {
         const feature = e.feature
         if (!feature.getId()) {
-          feature.setId(uuid())
+          feature.setId(Ember.guidFor(feature))
         }
         this.addFeature(e.feature)
       }

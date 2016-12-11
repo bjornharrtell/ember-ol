@@ -1,7 +1,5 @@
 import Ember from 'ember'
 
-import uuid from 'npm:uuid/v4'
-
 export default Ember.Controller.extend({
   init () {
     this._super(...arguments)
@@ -9,7 +7,7 @@ export default Ember.Controller.extend({
     const f1 = new ol.Feature({
       geometry: new ol.geom.Polygon([[[2, 2], [98, 2], [2, 98], [2, 2]]])
     })
-    f1.setId(uuid())
+    f1.setId(Ember.guidFor(f1))
 
     const source = new ol.source.Vector({
       features: [
@@ -70,7 +68,7 @@ export default Ember.Controller.extend({
     const f2 = new ol.Feature({
       geometry: new ol.geom.Polygon([[[20, 20], [98, 20], [20, 98], [20, 20]]])
     })
-    f2.setId(uuid())
+    f2.setId(Ember.guidFor(f2))
     source.addFeature(f2)
 
     const draw = new ol.interaction.Draw({ source, type: 'LineString' })

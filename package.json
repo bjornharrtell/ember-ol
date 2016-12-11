@@ -49,8 +49,7 @@
     "ember-addon"
   ],
   "dependencies": {
-    "ember-cli-htmlbars": "1.1.1",
-    "uuid": "3.0.1"
+    "ember-cli-htmlbars": "1.1.1"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
