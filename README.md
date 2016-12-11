@@ -1,5 +1,7 @@
 # ember-ol
 
+[![Build Status](https://travis-ci.org/bjornharrtell/ember-ol.svg?branch=master)](https://travis-ci.org/bjornharrtell/ember-ol.svg?branch=master)
+
 This README outlines the details of collaborating on this Ember addon.
 
 ## Installation
