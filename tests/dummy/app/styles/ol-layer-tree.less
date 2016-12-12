@@ -1,0 +1,53 @@
+.ol-layer-tree
+{
+	font: normal 11px sans-serif;
+	user-select: none;
+}
+
+.ol-layer-tree ul,
+.ol-layer-tree li
+{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.ol-layer-tree input
+{
+	position: absolute;
+}
+
+/* indent group */
+.ol-layer-tree input + label + ul
+{
+	margin: 0 0 0 10px;
+}
+
+.ol-layer-tree label,
+.ol-layer-tree label::before
+{
+	cursor: pointer;
+}
+
+.ol-layer-tree input:disabled + label
+{
+	cursor: default;
+	opacity: .6;
+}
+
+.ol-layer-tree label,
+.ol-layer-tree label::before
+{
+	display: inline-block;
+	height: 22px;
+	line-height: 16px;
+	vertical-align: middle;
+}
+
+.ol-layer-tree label::before
+{
+	content: "";
+	width: 24px;
+	margin: 0 0 0 0;
+	vertical-align: middle;
+}

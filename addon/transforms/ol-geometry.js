@@ -1,6 +1,6 @@
 import DS from 'ember-data';
 
-const format = new ol.format.GeoJSON()
+const format = new ol.format.GeoJSON();
 
 export default DS.Transform.extend({
   deserialize(serialized) {

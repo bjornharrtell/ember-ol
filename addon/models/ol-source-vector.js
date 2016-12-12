@@ -1,54 +1,71 @@
 import DS from 'ember-data';
 
-export default DS.Model.extend({
+const { Model, hasMany } = DS;
+
+export default Model.extend({
   ready () {
-    console.debug('ol-source-vector:ready:call')
+    console.debug('ol-source-vector:ready:call');
 
-    this.__updating = false
+    this.__updating = false;
 
-    const source = this.get('source')
+    const source = this.get('source');
 
     if (!source) {
-      return
+      return;
     }
 
-    source.getFeatures().forEach(f => this.addFeature(f))
+    source.getFeatures().forEach(f => this.addFeature(f));
 
     source.on('addfeature', e => {
       if (!this.__updating) {
-        const feature = e.feature
-        this.addFeature(e.feature)
+        const feature = e.feature;
+        this.addFeature(feature);
       }
-    })
+    });
+
+    source.on('removefeature', e => {
+      if (!this.__updating) {
+        const feature = e.feature;
+        this.get('features').removeObject(feature._emberRecord);
+      }
+    });
 
     this.get('features').addArrayObserver({
-      arrayWillChange() {
-
+      arrayWillChange(observedObj, start, removeCount) {
+        if (removeCount === 1) {
+          this.__updating = true;
+          const feature = this.get('features').objectAt(start).get('feature');
+          source.removeFeature(feature);
+          this.__updating = false;
+        }
       },
       arrayDidChange: (observedObj, start, removeCount, addCount) => {
-        const feature = this.get('features').objectAt(start).get('feature')
-        this.__updating = true
-        if (source.getFeatures().indexOf(feature) === -1) {
-          source.addFeature(feature)
+        if (addCount === 1) {
+          this.__updating = true;
+          const feature = this.get('features').objectAt(start).get('feature');
+          if (source.getFeatures().indexOf(feature) === -1) {
+            source.addFeature(feature);
+          }
+          this.__updating = false;
         }
-        this.__updating = false
       }
-    })
-    console.debug('ol-source-vector:ready:return')
+    });
+
+    console.debug('ol-source-vector:ready:return');
   },
   addFeature (feature) {
-    console.debug('ol-source-vector:addFeature:call')
+    console.debug('ol-source-vector:addFeature:call');
     const r = this.store.createRecord('ol-feature', {
       feature,
       geometry: feature.getGeometry()
-    })
-    feature._emberRecord = r
-    this.get('features').pushObject(r)
+    });
+    feature._emberRecord = r;
+    this.get('features').pushObject(r);
     // f.on('ready', () => this.get('features').pushObject(f))
-    console.debug('ol-source-vector:addFeature:return')
+    console.debug('ol-source-vector:addFeature:return');
   },
   addFeatures (features) {
-    features.forEach(f => this.addFeature(feature))
+    features.forEach(f => this.addFeature(f));
   },
-  features: DS.hasMany('ol-feature')
+  features: hasMany('ol-feature')
 });

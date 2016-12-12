@@ -15,4 +15,4 @@ export default new ol.Map({
     center: [0, 0],
     zoom: 2
   })
-})
+});

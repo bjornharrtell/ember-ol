@@ -1,4 +1,4 @@
-{{#if layer.layers}}
+{{#if layer.isGroup}}
   {{input id=id type="checkbox" checked=layer.visible}}<label for="{{id}}">{{layer.title}}</label>
   {{ol-layer-tree-group layers=layer.layers}}
 {{else}}

@@ -1,6 +1,16 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  fid: DS.attr('string'),
+
+  ready () {
+    const feature = this.get('feature');
+    if (!feature) {
+      const newFeature = new ol.Feature({
+        geometry: this.get('geometry')
+      });
+      newFeature._emberRecord = this;
+      this.set('feature', newFeature);
+    }
+  },
   geometry: DS.attr('ol-geometry')
 });

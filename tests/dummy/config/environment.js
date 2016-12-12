@@ -28,7 +28,7 @@ module.exports = function(environment) {
       'font-src':    ["'self'"],
       'connect-src': ["'self'"],
       'img-src':     ["'self'", "data:", "https://*.tile.openstreetmap.org", "https://*.a.ssl.fastly.net"],
-      'style-src':   ["'self'"],
+      'style-src':   ["'self'", "'unsafe-inline'"],
       'media-src':   ["'self'"]
     }
   };

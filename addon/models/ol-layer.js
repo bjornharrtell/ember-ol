@@ -1,25 +1,35 @@
-import Ember from 'ember'
+import Ember from 'ember';
+import DS from 'ember-data';
 
-var id = 0
+const { Model, attr, hasMany } = DS;
+const { guidFor } = Ember;
 
-const OlLayer = Ember.Object.extend({
-  init () {
-    const layer = this.get('layer')
-    this.set('id', id++)
-    if (layer.get('title')) this.set('title', layer.get('title'))
-    this.set('visible', layer.get('visible'))
-    this.set('exclusive', layer.get('exclusive'))
-    this.addObserver('visible', function () {
-      layer.set('visible', this.get('visible'))
-    })
-    layer.on('change:visible', function () {
-      this.set('visible', layer.get('visible'))
-    }, this)
-    if (layer.getLayers) {
-      const layers = layer.getLayers().getArray().map(layer => OlLayer.create({ layer }))
-      this.set('layers', layers)
+export default Model.extend({
+  ready () {
+    if (!this.get('id')) {
+      this.set('id', guidFor(this));
     }
-  }
-})
 
-export default OlLayer
+    const layer = this.get('layer');
+    layer._modelRecord = this;
+    this.set('title', layer.get('title'));
+    this.set('visible', layer.get('visible'));
+    this.set('exclusive', layer.get('exclusive'));
+    this.addObserver('visible', function () {
+      layer.set('visible', this.get('visible'));
+    });
+    layer.on('change:visible', () => this.set('visible', layer.get('visible')));
+
+    if (layer.getLayers) {
+      this.set('isGroup', true);
+      const layersArray = layer.getLayers().getArray();
+      const layers = layersArray.map(layer => this.store.createRecord('ol-layer', { layer }));
+      this.set('layers', layers);
+    }
+  },
+  isGroup: attr('boolean', { defaultValue: false }),
+  title: attr('string'),
+  visible: attr('boolean'),
+  exclusive: attr('exclusive'),
+  layers: hasMany('ol-layer')
+});
