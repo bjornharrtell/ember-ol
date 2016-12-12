@@ -31,7 +31,7 @@ export default Model.extend({
     });
 
     this.get('features').addArrayObserver({
-      arrayWillChange(observedObj, start, removeCount) {
+      arrayWillChange: (observedObj, start, removeCount) => {
         if (removeCount === 1) {
           this.__updating = true;
           const feature = this.get('features').objectAt(start).get('feature');
