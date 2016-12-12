@@ -35,7 +35,9 @@ export default Model.extend({
         if (removeCount === 1) {
           this.__updating = true;
           const feature = this.get('features').objectAt(start).get('feature');
-          source.removeFeature(feature);
+          if (source.getFeatures().indexOf(feature) !== -1) {
+            source.removeFeature(feature);
+          }
           this.__updating = false;
         }
       },
