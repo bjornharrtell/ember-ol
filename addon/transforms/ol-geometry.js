@@ -1,11 +1,12 @@
 import DS from 'ember-data';
 
+const format = new ol.format.GeoJSON()
+
 export default DS.Transform.extend({
   deserialize(serialized) {
-    return serialized;
+    return format.readGeometry(serialized);
   },
-
   serialize(deserialized) {
-    return deserialized;
+    return format.writeGeometry(deserialized);
   }
 });
