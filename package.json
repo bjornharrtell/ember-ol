@@ -1,7 +1,7 @@
 {
   "name": "ember-ol",
-  "version": "0.1.0",
-  "description": "Ember components for OpenLayers 3.",
+  "version": "0.2.0",
+  "description": "Ember components and models for OpenLayers 3.",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -11,12 +11,12 @@
     "start": "ember server",
     "test": "standard && ember try:testall"
   },
-  "repository": "",
+  "author": "Björn Harrtell <bjorn@wololo.org>",
+  "license": "MIT",
+  "repository": "bjornharrtell/ember-ol",
   "engines": {
     "node": ">= 6"
   },
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "2.5.0",
     "ember-browserify": "1.1.13",
