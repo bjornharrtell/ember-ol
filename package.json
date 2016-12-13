@@ -1,6 +1,6 @@
 {
   "name": "ember-ol",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Ember components and models for OpenLayers 3.",
   "directories": {
     "doc": "doc",
