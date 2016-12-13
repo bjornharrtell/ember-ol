@@ -1,6 +1,7 @@
 # ember-ol
 
-[![Build Status](https://travis-ci.org/bjornharrtell/ember-ol.svg?branch=master)](https://travis-ci.org/bjornharrtell/ember-ol.svg?branch=master)
+[![Build Status](https://travis-ci.org/bjornharrtell/ember-ol.svg?branch=master)](https://travis-ci.org/bjornharrtell/ember-ol)
+[![npm version](https://badge.fury.io/js/ember-ol.svg)](https://badge.fury.io/js/ember-ol)
 
 This README outlines the details of collaborating on this Ember addon.
 
