@@ -65,9 +65,7 @@ export default Model.extend({
     this.get('features').pushObject(r);
     // f.on('ready', () => this.get('features').pushObject(f))
     console.debug('ol-source-vector:addFeature:return');
-  },
-  addFeatures (features) {
-    features.forEach(f => this.addFeature(f));
+    return r;
   },
   features: hasMany('ol-feature')
 });
