@@ -46,7 +46,7 @@ SCRIPT_DIR="${BASH_SOURCE[0]%\\*}"
 SCRIPT_DIR="${SCRIPT_DIR%/*}"
 ARTIFACTS=$SCRIPT_DIR/../artifacts
 KUDU_SYNC_CMD=${KUDU_SYNC_CMD//\"}
-NODE_EXE="$PROGRAMFILES\\nodejs\\6.9.2\\node.exe"
+NODE_EXE="$PROGRAMFILES\\nodejs\\6.9.1\\node.exe"
 NPM_CMD="\"$NODE_EXE\" \"$PROGRAMFILES\\npm\\3.10.9\\node_modules\\npm\\bin\\npm-cli.js\""
 NODE_MODULES_DIR="$APPDATA\\npm\\node_modules"
 
