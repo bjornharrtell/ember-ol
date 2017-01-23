@@ -31,5 +31,5 @@ export default Model.extend({
   title: attr('string'),
   visible: attr('boolean'),
   exclusive: attr('exclusive'),
-  layers: hasMany('ol-layer')
+  layers: hasMany('ol-layer', { inverse: null })
 });
