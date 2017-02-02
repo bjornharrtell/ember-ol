@@ -4,7 +4,7 @@ const { Model, hasMany } = DS;
 
 export default Model.extend({
   ready () {
-    console.debug('ol-source-vector:ready:call');
+    // console.debug('ol-source-vector:ready:call');
 
     this.__updating = false;
 
@@ -53,10 +53,10 @@ export default Model.extend({
       }
     });
 
-    console.debug('ol-source-vector:ready:return');
+    // console.debug('ol-source-vector:ready:return');
   },
   addFeature (feature) {
-    console.debug('ol-source-vector:addFeature:call');
+    // console.debug('ol-source-vector:addFeature:call');
     const r = this.store.createRecord('ol-feature', {
       feature,
       geometry: feature.getGeometry()
@@ -64,7 +64,7 @@ export default Model.extend({
     feature._emberRecord = r;
     this.get('features').pushObject(r);
     // f.on('ready', () => this.get('features').pushObject(f))
-    console.debug('ol-source-vector:addFeature:return');
+    // console.debug('ol-source-vector:addFeature:return');
     return r;
   },
   features: hasMany('ol-feature')

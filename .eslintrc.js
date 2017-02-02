@@ -6,13 +6,11 @@ module.exports = {
   },
   extends: 'eslint:recommended',
   env: {
-    'browser': true
+    browser: true
   },
   globals: {
-    'ol': true
+    ol: true
   },
   rules: {
-    'semi': [2, 'always'],
-    'no-console': [0]
   }
 };
