@@ -4,7 +4,7 @@ module.exports = {
     ecmaVersion: 6,
     sourceType: 'module'
   },
-  extends: 'eslint:recommended',
+  extends: 'standard',
   env: {
     browser: true
   },
@@ -13,4 +13,4 @@ module.exports = {
   },
   rules: {
   }
-};
+}
