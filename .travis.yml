@@ -6,8 +6,9 @@ node_js:
 sudo: false
 
 cache:
+  yarn: true
   directories:
-    - $HOME/.npm
+    - node_modules
 
 env:
   # we recommend testing LTS's and latest stable release (bonus points to beta/canary)
@@ -24,12 +25,8 @@ matrix:
     - env: EMBER_TRY_SCENARIO=ember-canary
 
 before_install:
-  - npm config set spin false
-  - npm install -g phantomjs-prebuilt
+  - yarn global add phantomjs-prebuilt
   - phantomjs --version
-
-install:
-  - npm install
 
 script:
   # Usually, it's ok to finish the test scenario without reverting
