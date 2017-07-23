@@ -1,6 +1,6 @@
 {
   "name": "ember-ol",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Ember components and models for OpenLayers",
   "keywords": [
     "ember-addon",
