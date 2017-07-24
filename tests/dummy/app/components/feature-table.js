@@ -1,10 +1,10 @@
 // components/my-table.js
-import Ember from 'ember';
+import Component from "@ember/component";
 import Table from 'ember-light-table';
 
-const { computed } = Ember;
+import { computed } from "@ember/object"
 
-export default Ember.Component.extend({
+export default Component.extend({
   model: null,
   classNames: 'feature-table',
   columns: computed(function() {

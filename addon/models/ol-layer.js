@@ -1,8 +1,7 @@
-import Ember from 'ember'
 import DS from 'ember-data'
+import { guidFor } from "@ember/object/internals"
 
 const { Model, attr, hasMany } = DS
-const { guidFor } = Ember
 
 export default Model.extend({
   ready () {

@@ -1,9 +1,9 @@
 // components/my-table.js
-import Ember from 'ember';
+import Component from "@ember/component";
 
-const { computed } = Ember;
+import { computed } from "@ember/object"
 
-export default Ember.Component.extend({
+export default Component.extend({
   shortFid: computed('value', function() {
     const fid = this.get('value');
     const shortFid = fid ? fid.substr(0, 6) : 'n/a';
