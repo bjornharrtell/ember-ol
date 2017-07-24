@@ -1,4 +1,4 @@
-import Checkbox from "@ember/component/checkbox";
+import Checkbox from '@ember/component/checkbox'
 
 export default Checkbox.extend({
   instrumentDisplay: '{{input type="radio"}}',

@@ -1,5 +1,5 @@
-import { on } from "@ember/object/evented";
-import Component from "@ember/component";
+import { on } from '@ember/object/evented'
+import Component from '@ember/component'
 import layout from '../templates/components/ol-layer-tree-group'
 
 export default Component.extend({

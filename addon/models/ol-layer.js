@@ -1,5 +1,5 @@
 import DS from 'ember-data'
-import { guidFor } from "@ember/object/internals"
+import { guidFor } from '@ember/object/internals'
 
 const { Model, attr, hasMany } = DS
 

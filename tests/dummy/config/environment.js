@@ -23,15 +23,15 @@ module.exports = function(environment) {
     },
 
     contentSecurityPolicy: {
-      'default-src': ["'none'"],
-      'script-src':  ["'self'"],
-      'font-src':    ["'self'"],
-      'connect-src': ["'self'"],
-      'img-src':     ["'self'", "data:", "https://*.tile.openstreetmap.org", "https://*.a.ssl.fastly.net"],
-      'style-src':   ["'self'", "'unsafe-inline'"],
-      'media-src':   ["'self'"]
+      'default-src': ['\'none\''],
+      'script-src':  ['\'self\''],
+      'font-src':    ['\'self\''],
+      'connect-src': ['\'self\''],
+      'img-src':     ['\'self\'', 'data:', 'https://*.tile.openstreetmap.org', 'https://*.a.ssl.fastly.net'],
+      'style-src':   ['\'self\'', '\'unsafe-inline\''],
+      'media-src':   ['\'self\'']
     }
-  };
+  }
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
@@ -43,18 +43,18 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.locationType = 'none';
+    ENV.locationType = 'none'
 
     // keep test console output quieter
-    ENV.APP.LOG_ACTIVE_GENERATION = false;
-    ENV.APP.LOG_VIEW_LOOKUPS = false;
+    ENV.APP.LOG_ACTIVE_GENERATION = false
+    ENV.APP.LOG_VIEW_LOOKUPS = false
 
-    ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.rootElement = '#ember-testing'
   }
 
   if (environment === 'production') {
-    ENV.rootURL = '/ember-ol';
+    ENV.rootURL = '/ember-ol'
   }
 
-  return ENV;
-};
+  return ENV
+}

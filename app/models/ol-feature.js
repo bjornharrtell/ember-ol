@@ -1,1 +1,1 @@
-export { default } from 'ember-ol/models/ol-feature';
+export { default } from 'ember-ol/models/ol-feature'

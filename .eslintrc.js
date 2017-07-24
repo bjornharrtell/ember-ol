@@ -12,5 +12,8 @@ module.exports = {
     ol: true
   },
   rules: {
+    quotes: ['error', 'single'],
+    indent: ['error', 2],
+    semi: ['error', 'never']
   }
 }
